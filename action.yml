@@ -1,0 +1,35 @@
+name: Release Note
+
+author: k.jeong
+
+description: Create Github release with JIRA issues and notify on Slack
+
+inputs:
+  githubToken:
+    description: Github Token that has the right to access to `repo`
+    required: true
+  host:
+    description: JIRA host address
+    required: true
+  email:
+    description: JIRA email
+    required: true
+  apiToken:
+    description: JIRA api token
+    required: true
+  issueKeys:
+    description: JIRA issue keys (ex. 'ABC-1,ABC-2')
+    required: true
+  version:
+    description: release version (ex. '1.0.0')
+    required: true
+  slackWebhookUrl:
+    description: Slack webhook url to send release note
+
+runs:
+  using: 'node16'
+  main: 'lib/index.js'
+
+branding:
+  icon: 'file-text'
+  color: 'green'
